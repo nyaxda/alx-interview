@@ -6,10 +6,12 @@ import math
 
 
 def binomial(n, k):
+    """binomial"""
     return math.comb(n, k)
 
 
 def pascal_triangle(n):
+    """pascal_triangle"""
     if n <= 0:
         return []
 
