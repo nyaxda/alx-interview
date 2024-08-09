@@ -11,7 +11,6 @@ def minOperations(n):
     while (n > 1):
         while n % factor == 0:
             count += factor
-            if n % i == 0:
-                n //= factor
-                factor += 1
+            n //= factor
+        factor += 1
     return count
