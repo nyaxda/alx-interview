@@ -54,4 +54,3 @@ while True:
 
 # in case of no interruption
 print_stats()
-sys.exit(0)
