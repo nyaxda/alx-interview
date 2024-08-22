@@ -6,7 +6,7 @@ def validUTF8(data):
     """module for utf-8 validation"""
     # checking if data is valid
     if data is None or len(data) == 0:
-        return False
+        return True
     filtered_data = []
     # filtering the least significant 8 bits
     for i in range(len(data)):
@@ -19,10 +19,6 @@ def validUTF8(data):
     # determining the byte type
     i = 0
     while i < len(filtered_data):
-        # checking if the length is > 8
-        if len(filtered_data[i]) != 8:
-            return False
-
         # utf-8 validation:
         # for a 4-byte sequence
         if filtered_data[i][:5] == '11110':
