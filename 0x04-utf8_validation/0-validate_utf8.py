@@ -30,7 +30,7 @@ def validUTF8(data):
                 return False
             if (filtered_data[i + 1][:2] != '10' or
                     filtered_data[i + 2][:2] != '10' or
-                    filtered_data[i + 2][:2] != '10'):
+                    filtered_data[i + 3][:2] != '10'):
                 return False
             i += 4
             continue
@@ -58,7 +58,7 @@ def validUTF8(data):
         elif filtered_data[i][:1] == '0':
             i += 1
             continue
-        # if nont of the above conditions match, invalid sequence
+        # if none of the above conditions match, invalid sequence
         return False
 
     return True
