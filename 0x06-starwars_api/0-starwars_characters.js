@@ -12,7 +12,7 @@ if (process.argv.length !== 3) {
 const movieId = process.argv[2];
 
 // Helper function to fetch a character's name
-function fetchCharacter(url) {
+function fetchCharacter (url) {
   return new Promise((resolve, reject) => {
     request(url, (error, response, body) => {
       if (error) {
