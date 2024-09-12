@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """matrix rotation module"""
 
-def rotate_2d_matrix(matrix):
+def rotate_2d_matrix(matrix) -> None:
     """rotates a matrix clockwise 90 degrees"""
     n = len(matrix)
 
