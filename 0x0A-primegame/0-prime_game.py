@@ -2,19 +2,18 @@
 """Game Module"""
 
 
-def sieve(n):
+def prime_helper(number):
     """
-    Sieve of Eratosthenes to generate a list of primes up to n.
-    Args: n: integer
-    Returns: list of booleans indicating if index is prime
+    Helper function to determine if a number is prime
+    Args: number: integer
+    Returns: True if number is prime, False otherwise
     """
-    is_prime = [True] * (n + 1)
-    is_prime[0] = is_prime[1] = False  # 0 and 1 are not primes
-    for i in range(2, int(n**0.5) + 1):
-        if is_prime[i]:
-            for multiple in range(i * i, n + 1, i):
-                is_prime[multiple] = False
-    return is_prime
+    if number <= 1:
+        return False
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
 
 
 def isWinner(x, nums):
@@ -25,8 +24,6 @@ def isWinner(x, nums):
     """
     if not nums or x < 1:
         return None
-    max_num = max(nums)
-    is_prime = sieve(max_num)
     maria_wins = 0
     ben_wins = 0
 
@@ -43,7 +40,7 @@ def isWinner(x, nums):
         while play_numbers:
             prime_number = None
             for num in play_numbers:
-                if is_prime[num]:
+                if prime_helper(num):
                     prime_number = num
                     break
             if prime_number is None:
