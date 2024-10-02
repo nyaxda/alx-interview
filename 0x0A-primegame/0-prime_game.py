@@ -22,16 +22,16 @@ def isWinner(x, nums):
     Args: x: number of rounds, nums: list of integers
     Returns: name of the player that won the most rounds
     """
-    if not nums or len(nums) == 0 or x < 1:
+    if not nums or x < 1:
         return None
     maria_wins = 0
     ben_wins = 0
 
-    # False Means it is Maria's Turn, True means it is Ben's Turn
-    flag = False
     for i in range(x):
         n = nums[i]
         play_numbers = list(range(1, n + 1))
+        maria_turn = True
+
         while play_numbers:
             prime_number = None
             for num in play_numbers:
@@ -44,8 +44,9 @@ def isWinner(x, nums):
             play_numbers = [num for num in
                             play_numbers if num % prime_number != 0]
             # toggling to switch players
-            flag = not flag
-        if not flag:
+            maria_turn = not maria_turn
+
+        if maria_turn:
             ben_wins += 1
         else:
             maria_wins += 1
