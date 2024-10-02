@@ -29,6 +29,11 @@ def isWinner(x, nums):
 
     for i in range(x):
         n = nums[i]
+
+        if n == 1:
+            ben_wins += 1
+            continue
+
         play_numbers = list(range(1, n + 1))
         maria_turn = True
 
